@@ -10,8 +10,6 @@
 
 	<cache:annotation-driven />
 
-    
-    
 	<bean name="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
 		<property name="caches">
 			<set>

@@ -25,7 +25,23 @@
 		p:connection-factory-ref="srpConnectionFactory" />
 
 
-	<!--  declare Redis Cache Manager  -->
-	 <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager" c:template-ref="redisTemplate"/>
+	<!--  declare Redis Cache Manager -->
+	 <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager" 
+	   c:template-ref="redisTemplate">
+	   
+	   <property name="loadRemoteCachesOnStartup" value="true" />
+       <property name="defaultExpiration" value="14440" />
+	   <property name="expires">
+            <map>
+                <entry key="persons" value="3600" />
+            </map>
+        </property>
+        
+        <property name="cacheNames">
+            <list>
+                <value>persons</value>
+            </list>
+        </property>
+	 </bean>
 	 
 </beans>

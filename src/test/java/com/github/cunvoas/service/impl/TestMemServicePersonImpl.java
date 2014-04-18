@@ -18,10 +18,10 @@ import com.github.cunvoas.service.ServicePerson;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({
   "/spring-test.xml"
-  , "/spring-cache.xml"
+  , "/spring-cache-simple.xml"
 })
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class TestServicePersonImpl {
+public class TestMemServicePersonImpl {
 	
 	@Autowired
 	private ServicePerson servicePerson;
