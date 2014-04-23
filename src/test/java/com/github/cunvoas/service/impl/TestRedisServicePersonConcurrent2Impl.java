@@ -2,6 +2,7 @@ package com.github.cunvoas.service.impl;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,6 +32,9 @@ public class TestRedisServicePersonConcurrent2Impl {
 		long startC = System.nanoTime();
 		Person person = servicePerson.getPersonById(3);
 		long stopC = System.nanoTime();
+		
+		Assert.assertNotNull("get(3)", person);
+		Assert.assertEquals("name", "UNVOAS", person.getLastname());
 		
 		double aaC = (stopC-startC)/1E6;
 		int durationMsC = Double.valueOf(aaC).intValue();
